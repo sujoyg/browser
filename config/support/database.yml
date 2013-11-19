@@ -1,0 +1,21 @@
+shared: &shared
+  adapter: mysql2
+  encoding: utf8
+  reconnect: true
+  pool: 5
+
+development:
+  <<: *shared
+  database: <%= $globals.application.downcase %>_<%= $user %>_development
+  username: root
+  password: password
+
+production:
+  <<: *shared
+  database: <%= $globals.application.downcase %>
+
+test:
+  <<: *shared
+  database: <%= $globals.application.downcase %>_<%= $user %>_test
+  username: root
+  password: password

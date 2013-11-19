@@ -1,0 +1,22 @@
+shared: &shared
+  application: Browser
+  deployment: &deployment
+    dir: /mnt/deployment/browser
+    repository: git@github.com:<%= ENV['USER'] %>/browser.git
+    user: user
+  token: 2def5bdfe89f8dda89d37fb95932483450cf995b20252fc60cbe82cf1e0688504a79c25bfcc52c123c9d37cc3b806753854b9b473e4f3ba8db415bbe40390fe6
+
+development:
+  <<: *shared
+  host: localhost:3000
+
+production:
+  <<: *shared
+  deployment:
+    <<: *deployment
+    host: www.browser.com
+  host: www.browser.com
+
+test:
+  <<: *shared
+  host: test.host
