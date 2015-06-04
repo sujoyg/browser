@@ -1,3 +1,14 @@
 - set_javascript('site/home')
 
 %a.button{href: '#'} Send
+%a.github{href: '#'} Github
+
+= form_tag('http://api.keychain.cc/users') do
+  .input
+    = label_tag 'realm_id'
+    = text_field_tag 'realm_id', 'D79FD966-27C3-40AC-BF9C-853C3D25746E'
+  .input
+    = label_tag 'realm_user_id'
+    = text_field_tag 'realm_user_id', '5e0e2300-a21d-4332-bfe5-d743cff8f1d5'
+  = submit_tag("Submit")
+

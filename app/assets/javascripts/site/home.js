@@ -16,12 +16,44 @@ function post() {
   });
 }
 
+function github() {
+  $.ajax({
+    url: 'https://github.com',
+    type: 'GET',
+    headers: {
+      Authorization: 'Basic c3Vqb3lnOmRlcmUxZmZlUw=='
+    },
+    async: false,
+    success: function (data) {
+      console.log('Successful.');
+    }
+  });
+}
+
 function init() {
-  $('a.button').click(function () {
+  $('a.button').click(function (e) {
+    e.preventDefault();
+
     post();
 
     return false;
   });
+
+  $('a.github').click(function (e) {
+    e.preventDefault();
+
+    github();
+
+    return false;
+  });
+
+  $('form').submit(function (e) {
+    e.preventDefault();
+
+    $('form').submit();
+
+    return false;
+  })
 }
 
 $(init);
